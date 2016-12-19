@@ -43,11 +43,21 @@ while(user_input != "EXIT"):
 			player = Player(user_input)
 			player_list.append(player)
 
-	# command to print stats of all players
-	if(user_input == "PRINT"):
-		print "entered print"
-		for p in player_list:
-			p.print_stats()
+	# command to print stats of a singular player
+	if(user_input.find("PRINT") != -1):
+		#splits at all the spaces
+		if not player_list: 
+			print "No players added in list"
+			break;
+		#"user_input formatting example: print leo"
+		#"values example: [print, read]"
+		try:
+			values = user_input.split();
+			for p in player_list:
+				if(p.name == values[1]):
+					p.print_stats()
+		except:
+			print "invalid input, use the format 'print [name]'"
 
 
 	# command to shoot the ball
