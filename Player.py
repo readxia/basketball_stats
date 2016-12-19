@@ -15,119 +15,126 @@ class Player(object):
 	turnovers=0
 	fouls=0
 
-def shoot(type, make):
-	"""edits data for shooting percentage and calculates
-	points
+	def __init__(self, name):
+		self.name = name
 
-	type: type of shot 
-		1 = free throw
-		2 = field goal
-		3 = three points
-		-1 = undo free throw
-		-2 = undo field goal
-		-3 = undo three point
-	make: boolean for made or missed shot
-	"""
+	def shoot(self, type, make):
+		"""edits data for shooting percentage and calculates
+		points
 
-	if(type==1)
-		this.free_throw_attempts+=1
-		if(make)
-			this.free_throw_made+=1
-			this.points+=1
-	if(type==2)
-		this.field_goal_attempts+=1
-		if(make)
-			this.field_goal_made+=1
-			this.points+=2
-	if(type==3)
-		this.three_point_attempts+=1
-		this.field_goal_made+=1
-		if(make)
-			this.three_point_made+=1
-			this.field_goal_made+=1
-			this.points+=3
-	if(type==-1)
-		this.free_throw_attempts-=1
-		if(make)
-			this.free_throw_made-=1
-			this.points-=1
-	if(type==-2)
-		this.field_goal_attempts-=1
-		if(make)
-			this.field_goal_made-=1
-			this.points-=2
-	if(type==-3)
-		this.three_point_attempts-=1
-		this.field_goal_made-=1
-		if(make)
-			this.three_point_made-=1
-			this.field_goal_made-=1
-			this.points-=3
+		type: type of shot 
+			1 = free throw
+			2 = field goal
+			3 = three points
+			-1 = undo free throw
+			-2 = undo field goal
+			-3 = undo three point
+		make: boolean for made or missed shot
+		"""
+
+		if(type==1):
+			print 'TYPE 1'
+			self.free_throw_attempts+=1
+			if(make):
+				self.free_throw_made+=1
+				self.points+=1
+		if(type==2):
+			print 'TYPE 2'
+			self.field_goal_attempts+=1
+			if(make):
+				self.field_goal_made+=1
+				self.points+=2
+		if(type==3):
+			print 'TYPE 3'
+			self.three_point_attempts+=1
+			self.field_goal_attempts+=1
+			if(make):
+				self.three_point_made+=1
+				self.field_goal_made+=1
+				self.points+=3
+		if(type==-1):
+			self.free_throw_attempts-=1
+			if(make):
+				self.free_throw_made-=1
+				self.points-=1
+		if(type==-2):
+			self.field_goal_attempts-=1
+			if(make):
+				self.field_goal_made-=1
+				self.points-=2
+		if(type==-3):
+			self.three_point_attempts-=1
+			self.field_goal_attempts-=1
+			if(make):
+				self.three_point_made-=1
+				self.field_goal_made-=1
+				self.points-=3
 
 
 
-def rebound(offensive, num_rebounds):
+	def rebound(self, offensive, num_rebounds):
 
-	"""updates the amount of offensive and defensive rebounds
+		"""updates the amount of offensive and defensive rebounds
 
-		off = type of rebound
-			true = offensive
-			false = defensive
-	"""
+			off = type of rebound
+				true = offensive
+				false = defensive
+		"""
 
-	if(offensive)
-		this.off_rebounds+=num_rebounds
-	else
-		this.def_rebounds+=num_rebounds
+		if(offensive):
+			self.off_rebounds+=num_rebounds
+		else:
+			self.def_rebounds+=num_rebounds
 
-def assist(amount):
+	def assist(self, amount):
 	
-	"""updates the amount of assists by one
-	"""
+		"""updates the amount of assists by one
+		"""
 
-	this.assists+=amount
+		self.assists+=amount
 
-def steal(amount):
-	"""updates the amount of steals
-	"""
+	def steal(self, amount):
+		"""updates the amount of steals
+		"""
 
-	this.steals+=amount
+		self.steals+=amount
 
-def block(amount):
-	"""updates the amount of blocks
-	"""
+	def block(self, amount):
+		"""updates the amount of blocks
+		"""
 
-	this.blocks+=amount
+		self.blocks+=amount
 
-def turnover(amount):
-	"""updates the amount of turnovers
-	"""
+	def turnover(self, amount):
+		"""updates the amount of turnovers
+		"""
 
-	this.turnovers+=amount
+		self.turnovers+=amount
 
-def foul(amount):
-	"""updates the amount of fouls
-	"""
+	def foul(self, amount):
+		"""updates the amount of fouls
+		"""
 
-	this.fouls+=amount
+		self.fouls+=amount
 
-def print_stats():
-	"""
-		print out all stats for this player while calculating shooting percentage
-	"""
+	def print_stats(self):
+		"""
+			print out all stats for self player while calculating shooting percentage
+		"""
 
-	print "points: "+this.points
-	print "shooting %: "+(this.field_goal_made/this.field_goal_attempts)*100
-	print this.three_point_made+" - "+this.three_point_attempts
-	print this.free_throw_made+" - "+this.free_throw_attempts
-	print "total rebounds: "+this.off_rebounds+this.def_rebounds
-	print "offensive rebounds: "+this.off_rebounds
-	print "defensive rebounds: "+this.def_rebounds
-	print "assists: "+this.assists
-	print "steals: "+this.steals
-	print "turnovers: "+this.turnovers
-	print "blocks: "+this.blocks
-	print "fouls: "+this.fouls
+		print "points: "+ str(self.points)
+		print "shooting %: "+str((float(self.field_goal_made)/self.field_goal_attempts)*100)
+		print "field goals: "+str(self.field_goal_made)+" - "+str(self.field_goal_attempts)
+		print "three points"+str(self.three_point_made)+" - "+str(self.three_point_attempts)
+		print "free throws"+str(self.free_throw_made)+" - "+str(self.free_throw_attempts)
+		print "total rebounds: "+str(self.off_rebounds+self.def_rebounds)
+		print "offensive rebounds: "+str(self.off_rebounds)
+		print "defensive rebounds: "+str(self.def_rebounds)
+		print "assists: "+str(self.assists)
+		print "steals: "+str(self.steals)
+		print "turnovers: "+str(self.turnovers)
+		print "blocks: "+str(self.blocks)
+		print "fouls: "+str(self.fouls)
 
 
 
