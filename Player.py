@@ -33,19 +33,16 @@ class Player(object):
 		"""
 
 		if(type==1):
-			print 'TYPE 1'
 			self.free_throw_attempts+=1
 			if(make):
 				self.free_throw_made+=1
 				self.points+=1
 		if(type==2):
-			print 'TYPE 2'
 			self.field_goal_attempts+=1
 			if(make):
 				self.field_goal_made+=1
 				self.points+=2
 		if(type==3):
-			print 'TYPE 3'
 			self.three_point_attempts+=1
 			self.field_goal_attempts+=1
 			if(make):
@@ -122,11 +119,15 @@ class Player(object):
 			print out all stats for self player while calculating shooting percentage
 		"""
 
+		print self.name
 		print "points: "+ str(self.points)
-		print "shooting %: "+str((float(self.field_goal_made)/self.field_goal_attempts)*100)
+		if(self.field_goal_attempts==0):
+			print "shooting %: 0"
+		else:
+			print "shooting %: "+str((float(self.field_goal_made)/self.field_goal_attempts)*100)
 		print "field goals: "+str(self.field_goal_made)+" - "+str(self.field_goal_attempts)
-		print "three points"+str(self.three_point_made)+" - "+str(self.three_point_attempts)
-		print "free throws"+str(self.free_throw_made)+" - "+str(self.free_throw_attempts)
+		print "three points: "+str(self.three_point_made)+" - "+str(self.three_point_attempts)
+		print "free throws: "+str(self.free_throw_made)+" - "+str(self.free_throw_attempts)
 		print "total rebounds: "+str(self.off_rebounds+self.def_rebounds)
 		print "offensive rebounds: "+str(self.off_rebounds)
 		print "defensive rebounds: "+str(self.def_rebounds)
