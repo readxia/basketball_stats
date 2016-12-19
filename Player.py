@@ -137,6 +137,29 @@ class Player(object):
 		print "blocks: "+str(self.blocks)
 		print "fouls: "+str(self.fouls)
 
+	def write_stats(self, stat_sheet):
+		"""
+			print out all stats for self player while calculating shooting percentage
+		"""
+
+		stat_sheet.write(self.name+"\n")
+		stat_sheet.write("points: "+ str(self.points)+"\n")
+		if(self.field_goal_attempts==0):
+			stat_sheet.write("shooting %: 0\n")
+		else:
+			stat_sheet.write("shooting %: "+str((float(self.field_goal_made)/self.field_goal_attempts)*100)+"\n")
+		stat_sheet.write("field goals: "+str(self.field_goal_made)+" - "+str(self.field_goal_attempts)+"\n")
+		stat_sheet.write("three points: "+str(self.three_point_made)+" - "+str(self.three_point_attempts)+"\n")
+		stat_sheet.write("free throws: "+str(self.free_throw_made)+" - "+str(self.free_throw_attempts)+"\n")
+		stat_sheet.write("total rebounds: "+str(self.off_rebounds+self.def_rebounds)+"\n")
+		stat_sheet.write("offensive rebounds: "+str(self.off_rebounds)+"\n")
+		stat_sheet.write("defensive rebounds: "+str(self.def_rebounds)+"\n")
+		stat_sheet.write("assists: "+str(self.assists)+"\n")
+		stat_sheet.write("steals: "+str(self.steals)+"\n")
+		stat_sheet.write("turnovers: "+str(self.turnovers)+"\n")
+		stat_sheet.write("blocks: "+str(self.blocks)+"\n")
+		stat_sheet.write("fouls: "+str(self.fouls)+"\n")
+
 
 
 

@@ -26,6 +26,7 @@ def str2bool(v):
 
 
 while(user_input != "EXIT"):
+	stat_sheet=open("stat_sheet.txt", "w")
 	user_input = raw_input("Enter a command (HELP for list of commands):  ").upper()
 	print user_input
 
@@ -178,6 +179,16 @@ while(user_input != "EXIT"):
 					print "foul recorded"
 		except:
 			print "invalid input, use the format 'foul [name] [amount]'"
+
+
+	for p in player_list:
+		p.write_stats(stat_sheet)
+
+	stat_sheet.close()
+
+
+
+
 
 
 		
