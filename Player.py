@@ -159,6 +159,8 @@ class Player(object):
 		stat_sheet.write("turnovers: "+str(self.turnovers)+"\n")
 		stat_sheet.write("blocks: "+str(self.blocks)+"\n")
 		stat_sheet.write("fouls: "+str(self.fouls)+"\n")
+		stat_sheet.write("------------------------------------------------------\n")
+		stat_sheet.write("\n")
 
 
 
